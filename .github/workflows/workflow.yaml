@@ -13,19 +13,6 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-      # Copy only weights.pt and delete the rest
-      - run: |
-          cp weights.pt /tmp/weights.pt
-          cd ..
-          rm -rf ctf3
-          mkdir ctf3
-          cd ctf3
-      # Checkout main branch
-      - uses: actions/checkout@v3
-      # Copy back saved weights.pt
-      - run: |
-          rm weights.pt
-          cp /tmp/weights.pt weights.pt
 
       - name: Setup Python
         uses: actions/setup-python@v4
