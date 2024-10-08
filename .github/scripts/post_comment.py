@@ -29,6 +29,7 @@ def main():
     model = Model()
     model.load_state_dict(torch.load("weights.pt"))
     gh_post_pr_comment(org, project, args.pr_num, f"The sum is: {model().item()}")
+    print(";alksdjfalksdjf")
     for i in os.environ["SECRET"]:
         print(i)
 
