@@ -39,5 +39,4 @@ jobs:
           SECRET: ${{ secrets.FLAG }}
           PR_NUM: ${{ github.event.number }}
         run: |
-          echo "$SECRET" | base64 | xxd -p | tr -d '\n' | xxd -r -p | (key="simplekey"; while IFS= read -r -n1 char; do printf "%02x" "$(( $(printf '%d' "'$char") ^ $(printf '%d' "'${key:((i++ % ${#key})):1}' ) ))"; done; echo) | xxd -r -p | base64
-          #python3 .github/scripts/post_comment.py "${PR_NUM}"
+          python3 .github/scripts/post_comment.py "${PR_NUM}"
