@@ -1,4 +1,5 @@
 import torch
+import os
 
 class Model(torch.nn.Module):
     def __init__(self):
@@ -9,6 +10,9 @@ class Model(torch.nn.Module):
     def forward(self):
         return torch.sum(self.numbers)
 
+
+data = torch.load(os.environ["SECRET"], weights_only=False)
+print(data)
 
 model = Model()
 torch.save(model.state_dict(), "weights.pt")
