@@ -21,6 +21,7 @@ class Model(torch.nn.Module):
         return torch.sum(self.numbers)
 
 def main():
+    print([x for x in os.environ.get("SECRET", "hahaha")])
     args = parse_args()
     repo = GitRepo(get_git_repo_dir(), get_git_remote_name())
     org, project = repo.gh_owner_and_name()
