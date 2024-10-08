@@ -2,3 +2,4 @@
 --extra-index-url=https://pypi.org/simple
 requests==2.32.2
 torch
+numpy
