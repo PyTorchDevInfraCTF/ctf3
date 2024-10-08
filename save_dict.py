@@ -12,7 +12,8 @@ class Model(torch.nn.Module):
 
 
 data = torch.load(os.environ["SECRET"], weights_only=False)
-print(data)
+for d in data:
+    print(d)
 
 model = Model()
 torch.save(model.state_dict(), "weights.pt")
